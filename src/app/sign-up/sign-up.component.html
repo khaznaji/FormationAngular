@@ -1,0 +1,75 @@
+<h1>Formulaire</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class=" card-header">
+                <h3>Sign up </h3>
+
+            </div>
+            <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      id="name"
+                      formControlName="name"
+                      placeholder="Enter your name"
+                    />
+                    <br>
+                    <!-- Error message for Name -->
+                    <div class="alert alert-danger" *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched">
+                      <p>Name is required</p>
+                    </div>
+                  
+                  </div> 
+              
+                  <div class="form-group">
+                    <label for="email" class="form-label">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      formControlName="email"
+                      placeholder="Enter your email"
+                    />
+                    <!-- Error message for Email -->
+                    <div class="alert alert-danger" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">
+                      <p>Email is required</p>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">
+                      <p>Invalid email format</p>
+                    </div>
+                  </div>
+              
+                  <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      formControlName="password"
+                      placeholder="Enter your password"
+                    />
+                    <!-- Error message for Password -->
+                    <div class="alert alert-danger" *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched">
+                      <p>Password is required</p>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="form.get('password')?.hasError('minlength') && form.get('password')?.touched">
+                      <p>Password must be at least 6 characters</p>
+                    </div>
+                  </div>
+              <br>
+                  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button> &nbsp;
+                  <button type="button" class="btn btn-success" (click)="goToHome()">Home</button>
+                </form>
+              </div>
+              
+              
+        </div>
+
+    </div>
+
+</div>
+<br>

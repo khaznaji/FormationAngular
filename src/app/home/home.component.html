@@ -1,0 +1,67 @@
+
+<h1>{{ title }}</h1>  
+<button type="button" class="btn btn-warning" (click)="changeTitle()">Changer le titre</button> 
+<hr> 
+<p>{{ today | date: 'fullDate' }}</p>
+
+<div class="card" style="width: 18rem;">
+    <img src="../../assets/image.png" class="card-img-top" alt="...">
+    <!-- <img [src]="imageUrl" class="card-img-top" alt="..."> -->
+
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a [routerLink]="['/loading']" class="btn btn-primary">Go somewhere</a>
+      &nbsp;
+      <button type="button" class="btn btn-danger" (click)="confirmDelete()">Delete</button>
+
+      <hr>
+      <button type="button" class=" btn btn-success " (click)="increment()">Cliquez-moi pour incrémenter</button>
+      <p>Compteur: {{ count }}</p>
+    </div>
+  </div>
+
+  <div class="modal fade" id="deleteModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+<h5 class="modal-title">Delete Confirmation</h5>
+        </div>
+        <div class="modal-body">
+<p>Are you sure you want to delete this item ?</p>
+        </div>
+<div  class="modal-footer">
+
+<button class="btn btn-danger" type="button" (click)="closeDelete()">No</button> 
+<button class="btn btn-primary"type="button" (click)="DeleteItem()" >Yes</button>
+
+</div>
+      </div>
+    </div>
+
+  </div>
+
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Statut</th>
+
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.nom}} <p *ngIf="user.id==2">User Avec id 2</p></td>
+      <td>{{user.prenom}}</td>
+      <td>{{user.statut ? 'Connecte' :'Hors ligne'}}</td>
+
+      <td><button type="button" class="btn btn-danger" (click)="userClick(user)"> Click me</button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
