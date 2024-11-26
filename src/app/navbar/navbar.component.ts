@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  logout(){
+    localStorage.removeItem('user')
+    window.location.reload()
+  }
 
 }

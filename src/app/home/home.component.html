@@ -1,6 +1,10 @@
 
-<h1>{{ title }}</h1>  
-<button type="button" class="btn btn-warning" (click)="changeTitle()">Changer le titre</button> 
+<!-- <h1>{{ title }}</h1>  
+<button type="button" class="btn btn-warning" (click)="changeTitle()">Changer le titre</button>  -->
+<div *ngIf="currentUser">
+  <h1>Welcome {{currentUser.firstname}}</h1>
+<p>{{currentUser.email}}</p>
+</div>
 <hr> 
 <p>{{ today | date: 'fullDate' }}</p>
 
@@ -55,10 +59,12 @@
   <tbody>
     <tr *ngFor="let user of users">
       <td>{{user.id}}</td>
-      <td>{{user.nom}} <p *ngIf="user.id==2">User Avec id 2</p></td>
-      <td>{{user.prenom}}</td>
-      <td>{{user.statut ? 'Connecte' :'Hors ligne'}}</td>
-
+        <td>{{user.firstname}} <p *ngIf="user.id==2">User Avec id 2</p></td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.email }}</td>
+        <td>{{user.username }}</td>
+        <td>{{user.password }}</td>
+        <td>{{user.address }}</td>
       <td><button type="button" class="btn btn-danger" (click)="userClick(user)"> Click me</button>
       </td>
     </tr>

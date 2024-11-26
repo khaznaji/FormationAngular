@@ -13,10 +13,16 @@
             <a class="nav-link" [routerLink]="['/sign-up']" >Sign up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link"  [routerLink]="['/listUsers']" >List Users(BD)</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            <a class="nav-link"  [routerLink]="['/addUser']" >Add User (BD)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  [routerLink]="['/login']" >Login (BD) </a>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link " (click)="logout()">Logout</button>
           </li>
         </ul>
       </div>

@@ -10,6 +10,11 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoadingComponent } from './loading/loading.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { UsersListComponent } from './users-list/users-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AddUserComponent } from './add-user/add-user.component';
+import { LoginComponent } from './login/login.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +24,17 @@ import { NotfoundComponent } from './notfound/notfound.component';
     FooterComponent,
     SignUpComponent,
     LoadingComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    UsersListComponent,
+    AddUserComponent,
+    LoginComponent,
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule , 
     FormsModule , 
-    ReactiveFormsModule
+    ReactiveFormsModule  , HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

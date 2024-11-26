@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../model/user.model';
 
 declare var $:any ; //declaration variable jQuery
@@ -7,7 +7,12 @@ declare var $:any ; //declaration variable jQuery
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  currentUser!:User
+  ngOnInit(): void {
+    this.currentUser=JSON.parse(localStorage.getItem('user')!)
+    
+  }
   title = 'Bienvenue sur mon application Angular!';
   changeTitle() {
     this.title = 'Le titre a changé!';
@@ -34,10 +39,10 @@ $('#deleteModal').modal('show');
   }
   users:User[]=[
     {
-      id:1,nom:"Foulen 1",prenom:"Ben Foulen 1",statut:true},
-      {id:2,nom:"Foulen 2",prenom:"Ben Foulen 2",statut:false},
-      {id:3,nom:"Foulen 3",prenom:"Ben Foulen 3",statut:true},
-      {id:4,nom:"Foulen 4",prenom:"Ben Foulen 4",statut:false},
+      id:1,firstname:"Foulen 1",lastname:"Ben Foulen 1",username:"Hey 1" ,address:"address 1", email:"user1@gmail.com", password:"password1"}, 
+      {
+        id:2,firstname:"Foulen 2",lastname:"Ben Foulen 2",username:"Hey 2" ,address:"address 2", email:"user2@gmail.com", password:"password2"},   {
+          id:3,firstname:"Foulen 3",lastname:"Ben Foulen 3",username:"Hey 3" ,address:"address 3", email:"user3@gmail.com", password:"password3"}, 
 
   ]
   userClick(user:User){
